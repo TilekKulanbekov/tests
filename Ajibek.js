@@ -1,15 +1,13 @@
-//1) write a function that when given a URL as a string, parses out just the domain name and returns
-// it as a string. For example:
-
+// write a function that when given a URL as a string, parses out just the domain name and returns it as a string. with explanation of the code
+// Language: javascript
+// Path: Ajibek.js
 
 function domainName(url) {
-    if (typeof url === "string") {
-        let domain = url.replace("http://", "").replace("https://", "").replace("www.", "").split(".")[0];
-        return domain;
-    }
-    return "Invalid URL";
-
+    let domain = url.replace("http://", "").replace("https://", "").replace("www.", "").split(".")[0]; // replace the http, https and www with empty string and split the string with . and return the first element
+    return domain; // write your code here
 }
+
+
 
 console.log(domainName("http://google.com"));
 console.log(domainName("http://google.co.jp"));
