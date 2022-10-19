@@ -7,16 +7,16 @@ function verify(text) {
         '[': ']',
         '<': '>',
     };
-    const stack = [];
-    for (let i = 0; i < text.length; i += 1) {
-        const bracket = text[i];
-        if (brackets[bracket]) {
-        stack.push(bracket);
-        } else if (bracket === brackets[stack[stack.length - 1]]) {
-        stack.pop();
+    const stack = []; // создаем пустой массив
+    for (let i = 0; i < text.length; i += 1) { // проходимся по строке
+        const bracket = text[i]; // берем символ строки
+        if (brackets[bracket]) { // если символ есть в объекте brackets
+        stack.push(bracket); // добавляем его в массив
+        } else if (bracket === brackets[stack[stack.length - 1]]) { // если символ равен последнему элементу массива
+        stack.pop(); // удаляем последний элемент массива
         }
     }
-    return stack.length === 0;
+    return stack.length === 0; // если длина массива равна 0, то возвращаем true, иначе false
 }
 
 console.log(verify("---(++++)----")); // true
